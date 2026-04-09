@@ -14,12 +14,25 @@ public class Main {
 
         switch(op) {
             case 1:
-                Paciente p = new Paciente("", 0, "", "", "");
+                Paciente p[] = {
+                new Paciente("", 0, "", "", "");
                 p.setNome();
                 p.setIdade();
                 p.setCPF();
                 p.setSusCard();
                 p.setHistorico();
+                };
+                break;
+
+            case 2:
+                Medico m[] = {
+                    new Medico("", 0, "", "", 0);
+                    m.setNome();
+                    m.setIdade();
+                    m.setCPF();
+                    m.setEspecialidade();
+                    m.setSalario();
+                };
                 break;
         }
     }
