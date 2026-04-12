@@ -40,7 +40,11 @@ class Pessoa {
         return this.cpf;
     }
 
-    public void showDados(){
-        System.out.println("Nome: " + this.nome + "  Idade: " + this.idade + "  CPF: " + this.cpf);
+    public String showDados(){
+        return ("Nome: " + this.nome + "  Idade: " + this.idade + "  CPF: " + this.cpf);
+    }
+
+    public String pegarClasse(){
+        return "Pessoa";
     }
 }
