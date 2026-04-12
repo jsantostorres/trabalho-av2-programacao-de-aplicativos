@@ -31,7 +31,12 @@ class Paciente extends Pessoa {
     }
 
     @Override
-    public void showDados(){
-        System.out.println("Nome: " + this.getNome() + "  Idade: " + this.getIdade() + "  CPF: " + this.getCPF() + "  Cartão do SUS: " + this.susCard + "  Histórico Médico: " + this.historicoMedico);
+    public String showDados(){
+        return("Nome do paciente: " + this.getNome() + "  Idade: " + this.getIdade() + "  CPF: " + this.getCPF() + "  Cartão do SUS: " + this.susCard + "  Histórico Médico: " + this.historicoMedico);
+    }
+
+    @Override
+    public String pegarClasse(){
+        return "Paciente";
     }
 }
