@@ -3,7 +3,7 @@ import java.util.Scanner;
 class Medico extends Pessoa {
     //colocar crm
     private String especialidade;
-    private double salario;
+    private double salario; 
 
     Scanner sc = new Scanner(System.in);
 
@@ -24,7 +24,7 @@ class Medico extends Pessoa {
 
     public void setSalario(){
         System.out.println("Informe o salário do médico:");
-        this.salario = sc.nextFloat();
+        this.salario = sc.nextDouble();
     }
 
     public double getSalario(){
@@ -32,7 +32,12 @@ class Medico extends Pessoa {
     }
 
     @Override
-    public void showDados(){
-        System.out.println("Nome do médico: " + this.getNome() + "  Idade: " + this.getIdade() + "  CPF: " + this.getCPF() + "  Especialidade: " + this.especialidade + "  Salário: " + this.salario);
+    public String showDados(){
+        return ("Nome do médico: " + this.getNome() + "  Idade: " + this.getIdade() + "  CPF: " + this.getCPF() + "  Especialidade: " + this.especialidade + "  Salário: " + this.salario);
+    }
+
+    @Override
+    public String pegarClasse(){
+        return "Medico";
     }
 }
