@@ -36,4 +36,11 @@ public class Exame {
     public String showDados(){
         return "Nome do exame: " + this.nomeExame + "\nPaciente: \n" + this.paciente.showDados() + "\nResultado do exame: " + this.resultado;
     }
+
+    @Override
+    public String toString(){
+        return "nomeExame=" + this.getNomeExame() + ";" +
+        this.getPaciente().toString() + ";" +
+        "resultadoExame=" + this.getResultado() + ";";
+    }
 }
