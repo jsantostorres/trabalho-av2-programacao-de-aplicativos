@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 
 class Medico extends Pessoa {
@@ -33,11 +34,17 @@ class Medico extends Pessoa {
 
     @Override
     public String showDados(){
-        return ("Nome do médico: " + this.getNome() + "  Idade: " + this.getIdade() + "  CPF: " + this.getCPF() + "  Especialidade: " + this.especialidade + "  Salário: " + this.salario);
+        return ("Nome do médico: " + this.getNome() + "\nIdade do médico: " + this.getIdade() + "\nCPF do médico: " + this.getCPF() + "\nEspecialidade do médico: " + this.getEspecialidade() + "\nSalário do médico: " + this.getSalario());
     }
 
     @Override
     public String pegarClasse(){
         return "Medico";
+    }
+
+    @Override
+    public String toString(){
+        return "nomeMedico=" + this.getNome() + ";" + "idadeMedico=" + this.getIdade() + ";" + "cpfMedico=" + this.getCPF() + ";"
+        + "especialidadeMedico=" + this.getEspecialidade() + ";" + "salarioMedico=" + this.getSalario() + ";";
     }
 }
