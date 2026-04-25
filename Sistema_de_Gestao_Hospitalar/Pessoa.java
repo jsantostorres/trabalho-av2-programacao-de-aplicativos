@@ -47,4 +47,9 @@ class Pessoa {
     public String pegarClasse(){
         return "Pessoa";
     }
+
+    @Override
+    public String toString(){
+        return this.pegarClasse() + ";" + "nome=" +this.getNome() + ";" + "idade=" + this.getIdade() + ";" + "cpf=" + this.getCPF() + ";";
+    }
 }
