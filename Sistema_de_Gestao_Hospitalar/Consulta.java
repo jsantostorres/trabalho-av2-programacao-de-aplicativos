@@ -45,7 +45,13 @@ public class Consulta {
     }
 
     public String showDados(){
-        return ("Paciente: \n" + this.paciente.showDados() + "\nMedico: \n" + this.medico.showDados() + "\nData do atendimento: " + "\nData: " + this.data + "\nDescrição: " + this.descricao);
+        return ("Paciente: \n" + this.paciente.showDados() + "\n\nMedico: \n" + this.medico.showDados() + "\nData do atendimento: " + "\nData: " + this.getData() + "\nDescrição: " + this.getDescricao());
     }
 
+    @Override
+    public String toString(){
+        return this.getPaciente().toString() + ";" + this.getMedico().toString() + ";" + 
+        "dataConsulta=" + this.getData() + ";" +
+        "descricaoConsulta=" + this.getDescricao() + ";"; 
+    }
 }
