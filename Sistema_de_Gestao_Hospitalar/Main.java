@@ -46,6 +46,7 @@ public class Main {
                 for (String informacao : informacoes) {
                     String info = informacao.trim();
 
+                    //classe paciente
                     if (info.startsWith("nomePaciente=")) {
                         nomePaciente = info.substring("nomePaciente=".length());
                     } else if (info.startsWith("idadePaciente=")) {
@@ -57,7 +58,8 @@ public class Main {
                     } else if (info.startsWith("historicoPaciente=")) {
                         historicoMedicoPaciente = info.substring("historicoPaciente=".length());
                     }
-
+                    
+                    //classe medico
                     else if (info.startsWith("nomeMedico=")) {
                         nomeMedico = info.substring("nomeMedico=".length());
                     } else if (info.startsWith("idadeMedico=")) {
@@ -69,13 +71,15 @@ public class Main {
                     } else if (info.startsWith("salarioMedico=")) {
                         salarioMedico = Double.parseDouble(info.substring("salarioMedico=".length()));
                     }
-
+                    
+                    //classe exame
                     else if (info.startsWith("resultadoExame=")) {
                         resultadoExame = info.substring("resultadoExame=".length());
                     } else if (info.startsWith("nomeExame=")) {
                         nomeExame = info.substring("nomeExame=".length());
                     }
 
+                    //classe consulta
                     else if (info.startsWith("dataConsulta=")) {
                         dataConsulta = info.substring("dataConsulta=".length());
                     } else if (info.startsWith("descricaoConsulta=")) {
@@ -83,6 +87,7 @@ public class Main {
                     }
                 }
 
+                
                 if (linha.startsWith("Paciente") && nomePaciente != "" && idadePaciente != 0 && cpfPaciente != ""
                         && susCardPaciente != "" && historicoMedicoPaciente != "") {
                     Paciente paciente = new Paciente(nomePaciente, idadePaciente, cpfPaciente, susCardPaciente,
@@ -122,7 +127,7 @@ public class Main {
             int op;
 
             do {
-                System.out.println("Menu Principal:");
+                System.out.println("\nMenu Principal:");
                 System.out.println("1. Cadastrar Paciente");
                 System.out.println("2. Cadastrar Médico");
                 System.out.println("3. Registrar Consulta");
@@ -141,11 +146,11 @@ public class Main {
                 switch (op) {
                     case 1:
                         sc.nextLine();
-                        System.out.println("Digite um nome:");
+                        System.out.println("\nDigite um nome:");
                         String nomePaciente = sc.nextLine().trim();
-                        System.out.println("Digite a idade:");
+                        System.out.println("\nDigite a idade:");
                         int idadePaciente = sc.nextInt();
-                        System.out.println("Digite um CPF:");
+                        System.out.println("\nDigite um CPF:");
                         sc.nextLine();
                         String cpfPaciente = sc.nextLine();
                         if (validarCPF(pessoas, cpfPaciente).equals("O CPF inserido ja esta cadastrado no sistema.")) {
@@ -153,14 +158,14 @@ public class Main {
                             break;
                         }
                         System.out.println("CPF valido!");
-                        System.out.println("Digite um susCard:");
+                        System.out.println("\nDigite um susCard:");
                         String susCard = sc.nextLine();
                         if (validarSusCard(pessoas, susCard)
                                 .equals("O SusCard inserido ja esta cadastrado no sistema.")) {
                             System.out.println("O SusCard inserido ja esta cadastrado no sistema.");
                             break;
                         }
-                        System.out.println("Digite um Historico Medico:");
+                        System.out.println("\nDigite um Historico Medico:");
                         String historico = sc.nextLine();
                         Paciente paciente = new Paciente(nomePaciente, idadePaciente, cpfPaciente, susCard, historico);
                         pessoas.add(paciente);
@@ -168,11 +173,11 @@ public class Main {
 
                     case 2:
                         sc.nextLine();
-                        System.out.println("Digite um nome:");
+                        System.out.println("\nDigite um nome:");
                         String nomeMedico = sc.nextLine();
-                        System.out.println("Digite a idade:");
+                        System.out.println("\nDigite a idade:");
                         int idadeMedico = sc.nextInt();
-                        System.out.println("Digite um CPF:");
+                        System.out.println("\nDigite um CPF:");
                         sc.nextLine();
                         String cpfMedico = sc.nextLine();
                         if (validarCPF(pessoas, cpfMedico).equals("O CPF inserido ja esta cadastrado no sistema.")) {
@@ -180,9 +185,9 @@ public class Main {
                             break;
                         }
                         System.out.println("CPF valido!");
-                        System.out.println("Digite a especialidade:");
+                        System.out.println("\nDigite a especialidade:");
                         String especialidade = sc.nextLine();
-                        System.out.println("Digite o salario: ");
+                        System.out.println("\nDigite o salario: ");
                         double salario = sc.nextDouble();
                         Medico medico = new Medico(nomeMedico, idadeMedico, cpfMedico, especialidade, salario);
                         pessoas.add(medico);
@@ -190,7 +195,7 @@ public class Main {
 
                     case 3:
                         sc.nextLine();
-                        System.out.println("Digite o nome do paciente:");
+                        System.out.println("\nDigite o nome do paciente:");
                         String nomeBusca = sc.nextLine();
                         int resultadoPaciente = buscarPorNomePaciente(pessoas, nomeBusca);
                         if (resultadoPaciente == -1) {
@@ -199,7 +204,7 @@ public class Main {
                         }
 
                         Paciente pacienteConsulta = (Paciente) pessoas.get(resultadoPaciente);
-                        System.out.println("Digite o nome do medico:");
+                        System.out.println("\nDigite o nome do medico:");
                         nomeBusca = sc.nextLine();
                         int resultadoMedico = buscarPorNomeMedico(pessoas, nomeBusca);
                         if (resultadoMedico == -1) {
@@ -208,10 +213,10 @@ public class Main {
                         }
                         Medico medicoConsulta = (Medico) pessoas.get(resultadoMedico);
 
-                        System.out.println("Digite a data:");
+                        System.out.println("\nDigite a data:");
                         String data = sc.nextLine();
 
-                        System.out.println("Digite a descrição:");
+                        System.out.println("\nDigite a descrição:");
                         String descricao = sc.nextLine();
 
                         Consulta consulta = new Consulta(pacienteConsulta, medicoConsulta, data, descricao);
@@ -221,10 +226,10 @@ public class Main {
 
                     case 4:
                         sc.nextLine();
-                        System.out.println("Digite o nome do exame:");
+                        System.out.println("\nDigite o nome do exame:");
                         String nomeExame = sc.nextLine();
 
-                        System.out.println("Digite o nome do paciente: ");
+                        System.out.println("\nDigite o nome do paciente: ");
                         String nomePacienteExame = sc.nextLine();
                         int resultadoPacienteExame = buscarPorNomePaciente(pessoas, nomePacienteExame);
                         if (resultadoPacienteExame == -1) {
@@ -233,7 +238,7 @@ public class Main {
                         }
 
                         Paciente pacienteConsultaExame = (Paciente) pessoas.get(resultadoPacienteExame);
-                        System.out.println("Digite o resultado do exame: ");
+                        System.out.println("\nDigite o resultado do exame: ");
                         String resultadoExames = sc.nextLine();
 
                         Exame exame = new Exame(nomeExame, pacienteConsultaExame, resultadoExames);
@@ -243,9 +248,10 @@ public class Main {
 
                     case 5:
                         if (pessoas.isEmpty()) {
-                            System.out.println("Não há pessoas registradas no sistema.");
+                            System.out.println("Não há pessoas registradas no sistema. \n");
                             break;
                         }
+                        System.out.println("===== LISTA DE PESSOAS =====");
                         for (int i = 0; i < pessoas.size(); i++) {
                             System.out.println(pessoas.get(i).showDados() + "\n");
                         }
@@ -253,11 +259,11 @@ public class Main {
 
                     case 6:
                         if (consultas.isEmpty()) {
-                            System.out.println("Não há consultas registradas no sistema.");
+                            System.out.println("Não há consultas registradas no sistema. \n");
                             break;
                         }
 
-                        System.out.println("Lista de Consultas:");
+                        System.out.println("===== LISTA DE CONSULTAS =====");
 
                         for (int i = 0; i < consultas.size(); i++) {
                             System.out.println(consultas.get(i).showDados() + "\n");
@@ -266,11 +272,11 @@ public class Main {
 
                     case 7:
                         if (exames.isEmpty()) {
-                            System.out.println("Não há exames registrados no sistema.");
+                            System.out.println("Não há exames registrados no sistema. \n");
                             break;
                         }
 
-                        System.out.println("Lista de Exames: ");
+                        System.out.println("===== LISTA DE EXAMES =====");
 
                         for (int i = 0; i < exames.size(); i++) {
                             System.out.println(exames.get(i).showDados() + "\n");
