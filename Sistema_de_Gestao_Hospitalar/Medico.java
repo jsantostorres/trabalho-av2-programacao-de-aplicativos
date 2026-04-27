@@ -2,7 +2,7 @@
 import java.util.Scanner;
 
 class Medico extends Pessoa {
-    //colocar crm
+    
     private String especialidade;
     private double salario; 
 
