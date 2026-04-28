@@ -23,6 +23,8 @@ public class Main {
                     break;
                 }
 
+                //Atributos 
+                
                 String nomePaciente = "";
                 int idadePaciente = 0;
                 String cpfPaciente = "";
